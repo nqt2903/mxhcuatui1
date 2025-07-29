@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Các Trang MXH của wtay</title>
+  <title>MXH của WTay</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
@@ -67,13 +67,10 @@
       box-shadow: 0 4px 15px rgba(255, 51, 102, 0.5);
       border-color: #ff3366;
     }
-    /* Màu icon */
     .facebook { color: #3b5998; }
     .instagram { color: #e4405f; }
     .spotify { color: #1DB954; }
     .tiktok { color: #000000; }
-
-    /* Nút menu 3 gạch */
     .menu-btn {
       position: absolute;
       top: 15px;
@@ -82,8 +79,6 @@
       cursor: pointer;
       color: #555;
     }
-
-    /* Popup */
     .popup {
       display: none;
       position: fixed;
@@ -126,7 +121,7 @@
     <i class="fas fa-bars menu-btn" onclick="openPopup()"></i>
 
     <h1>Chào mừng đến với trang web của WTay</h1>
-    <p>Trang web này được code bởi wtay và chứa những trang MXH của wtay nhaa 💖</p>
+    <p>Trang web này được code bởi WTay và chứa những trang MXH của tui nhaa 💖</p>
     <ul>
       <li><a href="https://www.facebook.com/wt.15tuoi" target="_blank"><i class="fab fa-facebook-f facebook"></i> Facebook</a></li>
       <li><a href="https://www.instagram.com/qtdptris1tg/" target="_blank"><i class="fab fa-instagram instagram"></i> Instagram</a></li>
@@ -139,7 +134,6 @@
     </div>
   </div>
 
-  <!-- Popup nhập mật khẩu -->
   <div class="popup" id="popup">
     <div class="popup-content">
       <h3>Nhập mật khẩu Admin</h3>
@@ -150,8 +144,11 @@
   </div>
 
   <script>
+    // Key riêng cho bà
+    const counterKey = 'wtay-mxh-2903-v1';
+
     // Khi ai vào web → tăng lượt
-    fetch('https://api.countapi.xyz/hit/wtay-website/visits');
+    fetch(`https://api.countapi.xyz/hit/${counterKey}/visits`);
 
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
@@ -161,11 +158,11 @@
     }
     function checkPassword() {
       const pass = document.getElementById('admin-pass').value;
-      if (pass === "14102007") {
+      if (pass === "anhdeptrai") {
         closePopup();
         document.getElementById('admin-info').style.display = 'block';
         // Lấy số lượt mà không tăng
-        fetch('https://api.countapi.xyz/get/wtay-website/visits')
+        fetch(`https://api.countapi.xyz/get/${counterKey}/visits`)
           .then(res => res.json())
           .then(data => {
             document.getElementById('counter').innerText = data.value;
